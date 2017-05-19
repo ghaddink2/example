@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>1.2.4</serenity.version>
+        <serenity.version>1.4.0</serenity.version>
         <surefire.rerunFailingTestsCount>0</surefire.rerunFailingTestsCount>
         <maven-failsafe-plugin.version>2.18</maven-failsafe-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
@@ -26,6 +26,11 @@
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.version}</version>
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -56,10 +61,7 @@
                     <skip>false</skip>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>**NL/BLKNL0**.java</include>
-                        <include>**NL/LBNL00*.java</include>
-                        <include>**NL_Mobile/LBNL0**.java</include>
-                        <include>**Xenos/XENL0**.java</include>
+                        <include>**.java</include>
                     </includes>
                 </configuration>
             </plugin>
