@@ -14,6 +14,6 @@ public class feature1 {
 
     @Test
     public void test1() throws Exception {
-		rest.callService();
+		rest.callService("monkey");
     }
 }

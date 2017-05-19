@@ -1,0 +1,16 @@
+{
+  "request": {
+    "url": "/monkey",
+    "method": "GET"
+  },
+  "response": {
+    "status": 200,
+    "jsonBody": {
+      "response": "You just got mocked"
+    },
+    "headers": {
+      "MockServer": "This is a Mock Response",
+      "Content-Type": "application/json"
+    }
+  }
+}
