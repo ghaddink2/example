@@ -7,13 +7,19 @@ import org.junit.runner.RunWith;
 import steps.RestSteps;
 
 @RunWith(SerenityRunner.class)
-public class feature1 {
+public class Mocking {
 
-    @Steps
-    RestSteps rest;
+	@Steps
+	RestSteps rest;
 
-    @Test
-    public void test1() throws Exception {
+	@Test
+	public void setMockingBasedOnStaticFile() throws Exception {
 		rest.callService("monkey");
-    }
+	}
+
+	@Test
+	public void setMockingBasedOnDynamicFileWithSingleVariable() throws Exception {
+    	rest.callDynamicService("hippo");
+	}
+
 }

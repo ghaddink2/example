@@ -17,11 +17,24 @@ public class RestSteps {
 	public void callService(String animal) {
 
 		mock.setMockMapping(animal);
+		callMockedService(animal);
+		mock.resetMockMappings();
+	}
 
+	private void callMockedService(String animal) {
 		when().
 				get(MOCK_SERVICE + animal).
 				then().statusCode(200);
+	}
 
+	@Step
+	public void callDynamicService(String animal) {
+
+		mock.setDynamicMockMapping(animal);
+		callMockedService(animal);
 		mock.resetMockMappings();
+
+
+
 	}
 }
