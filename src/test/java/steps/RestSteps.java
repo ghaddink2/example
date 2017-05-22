@@ -33,8 +33,11 @@ public class RestSteps {
 		mock.setDynamicMockMapping(animal);
 		callMockedService(animal);
 		mock.resetMockMappings();
+	}
 
-
-
+	public void callDynamicService(String animal, String name) {
+		mock.setDynamicMockMapping(animal, name);
+		callMockedService(animal);
+		mock.resetMockMappings();
 	}
 }

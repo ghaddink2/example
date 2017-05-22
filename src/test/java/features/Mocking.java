@@ -22,4 +22,9 @@ public class Mocking {
     	rest.callDynamicService("hippo");
 	}
 
+	@Test
+	public void setMockingBasedOnDynamicFileWithMultipleVariables() throws Exception {
+		rest.callDynamicService("giraffe", "Harry");
+	}
+
 }

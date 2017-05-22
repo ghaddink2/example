@@ -70,4 +70,9 @@ public class WireMockHelper {
 		sendMappingToMock(dynamicMessageBody);
 	}
 
+	public void setDynamicMockMapping(String resourceName, String animalName) {
+		String messageBody = loadMappingFile(resourceName);
+		String dynamicMessageBody = handlebars.handlebarsify(resourceName, animalName, messageBody);
+		sendMappingToMock(dynamicMessageBody);
+	}
 }
