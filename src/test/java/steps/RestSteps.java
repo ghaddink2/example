@@ -11,7 +11,7 @@ public class RestSteps {
 	@Steps
 	WireMockHelper mock;
 
-	public static final String MOCK_SERVICE = "http://localhost:9080/";
+	public static final String MOCK_SERVICE = "http://localhost:8080/";
 
 	@Step
 	public void callService(String animal) {
@@ -19,6 +19,14 @@ public class RestSteps {
 		mock.setMockMapping(animal);
 		callMockedService(animal);
 		mock.resetMockMappings();
+	}
+
+	@Step
+	public void callJsonService(String animal) {
+
+		//mock.setMockMapping(animal);
+		callMockedService(animal);
+		//mock.resetMockMappings();
 	}
 
 	private void callMockedService(String animal) {

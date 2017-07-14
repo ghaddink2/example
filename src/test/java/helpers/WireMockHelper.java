@@ -15,7 +15,7 @@ public class WireMockHelper {
 	@Steps
 	HandlebarsHelper handlebars;
 
-	private String MIRAKL_MOCK_MAPPINGS_URL = "http://localhost:9080/__admin/mappings";
+	private String MIRAKL_MOCK_MAPPINGS_URL = "http://localhost:8080/__admin/mappings";
 	private String MOCK_UUID = "mock_uuid";
 
 	@Step
