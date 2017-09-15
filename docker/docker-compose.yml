@@ -1,0 +1,21 @@
+seleniumhub:
+  image: selenium/hub
+  ports:
+    - 4444:4444
+
+chromenode:
+  image: selenium/node-chrome
+  ports:
+    - 5900
+  links:
+    - seleniumhub:hub
+# ----- IF Hostsfile entries are needed please add them below -----
+#  extra_hosts:
+#    - "hostname:ipaddess"
+
+firefoxnode:
+  image: selenium/node-firefox
+  ports:
+    - 5900
+  links:
+    - seleniumhub:hub
