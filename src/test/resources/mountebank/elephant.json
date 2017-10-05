@@ -1,0 +1,38 @@
+{
+  "port": 4545,
+  "protocol": "http",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "body": "I'm sorry, Jimmy the elephant is not here, but I can tell you the time though. It is ${TIME}"
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "and": [
+            {
+              "equals": {
+                "path": "/test",
+                "method": "POST",
+                "headers": {
+                  "Content-Type": "application/json"
+                }
+              }
+            },
+            {
+              "not": {
+                "contains": {
+                  "body": "requiredField"
+                },
+                "caseSensitive": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]

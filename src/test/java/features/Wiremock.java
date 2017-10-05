@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import steps.RestSteps;
 
 @RunWith(SerenityRunner.class)
-public class Mocking {
+public class Wiremock {
 
 	@Steps
 	RestSteps rest;

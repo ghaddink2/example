@@ -15,7 +15,7 @@ public class WireMockHelper {
 	@Steps
 	HandlebarsHelper handlebars;
 
-	private String MIRAKL_MOCK_MAPPINGS_URL = "http://localhost:9080/__admin/mappings";
+	private String WIREMOCK_MAPPINGS_URL = "http://localhost:9080/__admin/mappings";
 	private String MOCK_UUID = "mock_uuid";
 
 	@Step
@@ -26,15 +26,16 @@ public class WireMockHelper {
 	}
 
 	private void sendMappingToMock(String messageBody) {
-		String uuid = given().log().all().
+		String uuid = given().
 				request().body(messageBody).with().contentType("application/json").
-				when().post(MIRAKL_MOCK_MAPPINGS_URL).
+				when().post(WIREMOCK_MAPPINGS_URL).
 				then().statusCode(201).
 				extract().path("uuid");
 
 		Serenity.setSessionVariable(MOCK_UUID).to(uuid);
 	}
 
+	//TODO: Refactor to separate helper
 	private String loadMappingFile(String resourceName) {
 		File wireMockConfig = new File("src/test/resources/" + resourceName + ".json");
 		String messageBody = "";
@@ -59,7 +60,7 @@ public class WireMockHelper {
 		String uuid = Serenity.sessionVariableCalled(MOCK_UUID);
 
 		given().
-				when().delete(MIRAKL_MOCK_MAPPINGS_URL + "/" + uuid).
+				when().delete(WIREMOCK_MAPPINGS_URL + "/" + uuid).
 				then().statusCode(200);
 	}
 
